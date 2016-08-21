@@ -15,6 +15,6 @@ These are my class notes for the classes I'm taking during the Fall 2016 semeste
 
 ### MAT 472 - Intermediate Real Analysis I
 #### Instructor: Dr. Steven Kaliszewski
-[PDF Version of Notes](MAT 472/MAT 472 Notes.pdf) *Currently I have no notes for MAT 472* :dissapointed:
+[PDF Version of Notes](MAT 472/MAT 472 Notes.pdf) *Currently I have no notes for MAT 472* :disappointed:
 
 &copy; 2016 Brett Hansen
