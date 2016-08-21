@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+
+\makeatletter
+\newcommand{\ellipse}{\cdot\cdot\cdot}
+\newcommand{\sor}{\quad | \quad}
+\newcommand{\ssor}{\ |\ }
+\newcommand{\sdot}{\quad\cdot\quad}
+\newcommand{\prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\conprob}[2]{\prob{#1\ssor#2}}
+
+\title{CSE 425 Stochastic Processes}
+\author{Brett Hansen}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\break
+
+\section{Week of August 14th, 2016}
+
+\textbf{Stochastic Process} \quad a collection of random variables
+
+\subsection{Basic Probability Review}
+\subsubsection{Example 1.12}
+Compute the probability that event E occurs before event F if we repeat the experiment.
+\begin{align*}
+p &&= &&\prob{E} &&+ &&\prob{(E \cup F)^C} \cdot p \\
+  &&= &&\prob{E} &&+ &&1 - \prob{E \cup F} \cdot p \\
+  &&= &&\prob{E} &&+ &&(1 - \prob{E} - \prob{F}) \cdot p \\
+  &&= &&&&&&\frac{\prob{E}}{\prob{E} + \prob{F}}
+\end{align*}
+
+\subsubsection{Partitions}
+If $\{B_1, B_2, \ellipse, B_n\}$ is a partition of $\Omega$ and $A \subset \Omega$ then,
+\begin{align*}
+\prob{A} 	&&= &&&\prob{\bigcup_{i=1}^n A \cap B_i} \\
+			&&= &&&\sum_{i=1}^n \left(\prob{A \cap B_i}\right) \\
+			&&= &&&\sum_{i=1}^n \conprob{A}{B_i}\prob{B_i}
+\end{align*}
+
+\subsubsection{Example 1.13 - Craps}
+Roll two dice, then if
+\begin{enumerate}
+	\item the sum is 7 or 11 $\longrightarrow$ you win!
+	\item the sum is 2, 3, or 12 $\longrightarrow$ you lose!
+	\item the sum, $i$, is such that $i \in \{4, 5, 6, 8, 9, 10\}$, keep rolling until
+	\begin{enumerate}
+		\item the sum is 7 $\longrightarrow$ you lose!
+		\item the sum is $i$ $\longrightarrow$ you win!
+	\end{enumerate}
+\end{enumerate}
+
+\noindent Let $W$ be the event that you win and $D$ the sum of the two dice.
+\begin{align*}
+\prob{W} 	&&= &&&&&&&&&&&\sum_{i=2}^{12} \left(\conprob{W}{D=i}\prob{D=i}\right) \\
+			&&= &&&\prob{D=7} &&+ &&\prob{D=11} &&+ &&\sum_{i \in \{4,5,6,8,9,10\}} \left(\conprob{W}{D=i}\prob{D=i}\right) \\
+			&&= &&&\frac{6}{36} &&+ &&\frac{2}{36} &&+ &&\sum_{i \in \{4,5,6,8,9,10\}} \left(\frac{\prob{D=i}^2}{\prob{D=i}+\prob{D=7}}\right) \\
+			&&= &&&\frac{6}{36} &&+ &&\frac{2}{36} &&+ &&2\left(\frac{1}{36} + \frac{4}{90} + \frac{25}{396}\right) \\
+			&&= &&&\frac{4880}{9900} &&\approx &&0.4929
+\end{align*}
+
+\end{document}

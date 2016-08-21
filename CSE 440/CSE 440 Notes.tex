@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\makeatletter
+\newcommand{\ellipse}{\cdot\cdot\cdot}
+\newcommand{\sor}{\quad | \quad}
+\newcommand{\sdot}{\quad\cdot\quad}
+
+\title{CSE 440 Compiler Construction}
+\author{Brett Hansen}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\break
+
+\section{Week of August 14th, 2016}
+\subsection{Compiler Components}
+
+\begin{enumerate}
+	\item Syntax
+	\begin{enumerate}
+		\item Lexical Analysis
+		\item Parsing
+	\end{enumerate}
+	\item Semantics
+	\begin{enumerate}
+		\item Type Checking \textit{(Project 1)}
+		\item Code Generation
+		\begin{enumerate}
+			\item Intermediate Representation \textit{(Project 2)}
+			\item Analysis/Optimization \textit{(Project 2)}
+			\item Low Level Code Generation \& Optimization \textit{(Project 3 \& 4)}
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Language Components}
+
+\begin{enumerate}
+	\item Character Set
+	\item Tokens: sequence of characters
+	\begin{enumerate}
+		\item identifiers
+		\item keywords
+		\item separators
+		\item operators
+		\item built-in types
+		\item modifiers
+	\end{enumerate}
+	Tokens are defined using regular expressions.
+\end{enumerate}
+
+\subsection{Regular Expressions}
+
+\begin{tabular}{ l | r }
+	\textbf{Regular Expression} & \textbf{String Representation} \\
+	\hline
+	\hline	
+	$\emptyset$ & \textit{empty set} \\
+	$\epsilon$ & \textit{empty string} \\
+	a & \{a\} \\
+	$R_1 | R_2$ & $L(R_1) \cup L(R_2)$ \\
+	$R_1 \cdot R_2$ & $L(R_1) \cdot L(R_2)$ \\
+	$R^*$ & $\{\epsilon\} \cup L(R) \cup L(R) \cdot L(R) \cup ...$ \\
+	$(R)$ & \textit{grouping} \\
+\end{tabular}
+
+\vspace{1em}
+\begin{align*}
+L(R) 				&&& \text{The set of strings that R represents, also known as the \textit{language of R}.} \\
+\text{Precedence} 	&&& *\qquad\rightarrow\qquad\cdot\qquad\rightarrow\qquad|
+\end{align*}
+
+\vspace{1em}
+\textbf{Regular Expression Example:}
+\begin{align*}
+\text{ID} 		&&& \text{\textit{letter followed by 0 or more letters or digits}} \\
+\text{letter} 	&&& a\sor b\sor \ellipse \sor z\sor A\sor B\sor \ellipse\sor Z \\
+\text{digit} 	&&& 0\sor 1\sor \ellipse \sor 9 \\
+\text{ID} 		&&& letter \sdot (\quad letter\sor digit\quad)^* \\
+\end{align*}
+
+\begin{align*}
+\text{From regular expressions}	&&\longrightarrow &&& \text{non-deterministic finite state automata} \\
+						 		&&\hookrightarrow &&& \text{deterministic finite state automata} \\
+						 		&&\hookrightarrow &&& \text{program} \\
+\end{align*}
+
+\end{document}

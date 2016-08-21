@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+
+\makeatletter
+\newcommand{\ellipse}{\cdot\cdot\cdot}
+\newcommand{\sor}{\quad | \quad}
+\newcommand{\ssor}{\ |\ }
+\newcommand{\sdot}{\quad\cdot\quad}
+\newcommand{\prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\conprob}[2]{\prob{#1\ssor#2}}
+
+\title{CSE 415 Introduction to Combinatorics}
+\author{Brett Hansen}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\break
+
+\section{Week of August 14th, 2016}
+\subsection{Principle Definitions}
+\subsubsection{Product Principle}
+Suppose a task can be broken into $k$ subtasks, $t_1,t_2,\ellipse,t_k$, and further suppose there are $c_i$ ways to perform subtask $t_i$ and each way leads to an unique result. Then the number of ways to perform the task is $c_1 \cdot c_2 \ellipse c_k$.
+
+\subsubsection{Sum Principle}
+Suppose the objects in a counting problem can be divided into $k$ disjoint and exhaustive cases. If there are $n_i$ objects in the $i^{th}$ case for $i=1,2,\ellipse,k$ then there are $n_1+n_2+\ellipse+n_k$ objects.
+
+\subsubsection{Bijection Principle}
+Two finite sets have the same cardinality if and only if there exists a bijection between them. \\
+\newline
+\textbf{Example} \quad How many subsets does $\{k_1,k_2,k_3,k_4\}$ have? \\
+Find a bijection between the binary string $b_1b_2b_3b_4$ and $\{k_1,k_2,k_3,k_4\}$. \\
+
+$$S\subseteq\{k_1,k_2,k_3,k_4\}\longleftrightarrow b_1b_2b_3b_4 \quad\text{where}\quad b_i=
+\begin{cases} 
+	0 & \text{if}\quad k_i \notin S\\
+	1 & \text{if}\quad k_i \in S
+\end{cases}
+$$
+
+\noindent There are $2^4=16$ possibilites for the binary string so the set has $16$ subsets.
+
+\subsubsection{Quotient Principle}
+A \textit{partition} of a set, $S$, is a division of a set into disjoint subsets whose union is $S$. The subsets in a set of partitions are often called blocks of the partition. \newline
+\noindent Suppose a set $S$ has $p$ elements. If we partition $S$ into $q$ blocks of size $r$, then $q=p/r$ and $r=p/q$.
+
+\end{document}
