@@ -5,6 +5,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{hyperref}
+\RequirePackage{enumitem}
 
 % General macros
 \newcommand{\midellipsis}{\cdot\ \cdot\ \cdot}
@@ -13,6 +14,25 @@
 \newcommand{\ssor}{\ |\ }
 \newcommand{\sdot}{\quad\cdot\quad}
 \newcommand{\ssdot}{\ \codt\ }
+
+% Need big improvements
+\newcommand{\definition}[2]{
+	\begin{description}[style=sameline,leftmargin=1.5in]
+	\item[#1]#2
+	\end{description}
+}
+\newcommand{\example}[2]{
+	\begin{description}[style=multiline,leftmargin=1.5in]
+	\item[\textit{Example #1}]
+	#2
+	\end{description}
+}
+\newcommand{\proof}[1]{
+	\begin{description}[style=sameline,leftmargin=.75in]
+	\item[Proof]#1
+	\begin{flushright}QED\end{flushright}
+	\end{description}
+}
 
 % Math Macros
 %% Big Notation
