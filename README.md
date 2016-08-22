@@ -9,12 +9,12 @@ These are my class notes for the classes I'm taking during the Fall 2016 semeste
 #### Instructor: Dr. Susanna Fishel
 [PDF Version of Notes](MAT 415/MAT 415 Notes.pdf)
 
-### MAT 425 - Stochastic Processes
-#### Instructor: Dr. Nicolas Lanchier
-[PDF Version of Notes](MAT 425/MAT 425 Notes.pdf)
-
 ### MAT 472 - Intermediate Real Analysis I
 #### Instructor: Dr. Steven Kaliszewski
 [PDF Version of Notes](MAT 472/MAT 472 Notes.pdf) *Currently I have no notes for MAT 472* :disappointed:
+
+### STP 425 - Stochastic Processes
+#### Instructor: Dr. Nicolas Lanchier
+[PDF Version of Notes](MAT 425/MAT 425 Notes.pdf)
 
 &copy; 2016 Brett Hansen
