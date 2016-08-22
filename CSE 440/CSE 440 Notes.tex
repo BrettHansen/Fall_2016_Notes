@@ -62,7 +62,7 @@
 	a & \{a\} \\
 	$R_1 | R_2$ & $L(R_1) \cup L(R_2)$ \\
 	$R_1 \cdot R_2$ & $L(R_1) \cdot L(R_2)$ \\
-	$R^*$ & $\{\epsilon\} \cup L(R) \cup L(R) \cdot L(R) \cup ...$ \\
+	$R^*$ & $\{\epsilon\} \cup L(R) \cup L(R) \cdot L(R) \cup \ellipsis$ \\
 	$(R)$ & \textit{grouping} \\
 \end{tabular}
 
@@ -76,8 +76,8 @@ L(R) 				&&& \text{The set of strings that R represents, also known as the \text
 \textbf{Regular Expression Example:}
 \begin{align*}
 \text{ID} 		&&& \text{\textit{letter followed by 0 or more letters or digits}} \\
-\text{letter} 	&&& a\sor b\sor \ellipsis \sor z\sor A\sor B\sor \ellipsis\sor Z \\
-\text{digit} 	&&& 0\sor 1\sor \ellipsis \sor 9 \\
+\text{letter} 	&&& a\sor b\sor \midellipsis \sor z\sor A\sor B\sor \midellipsis\sor Z \\
+\text{digit} 	&&& 0\sor 1\sor \midellipsis \sor 9 \\
 \text{ID} 		&&& letter \sdot (\quad letter\sor digit\quad)^* \\
 \end{align*}
 
