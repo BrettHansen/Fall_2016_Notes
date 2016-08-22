@@ -15,6 +15,6 @@ These are my class notes for the classes I'm taking during the Fall 2016 semeste
 
 ### STP 425 - Stochastic Processes
 #### Instructor: Dr. Nicolas Lanchier
-[PDF Version of Notes](MAT 425/MAT 425 Notes.pdf)
+[PDF Version of Notes](STP 425/STP 425 Notes.pdf)
 
 &copy; 2016 Brett Hansen
