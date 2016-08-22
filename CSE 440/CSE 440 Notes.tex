@@ -1,16 +1,11 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{multicol}
-\usepackage{amsmath}
-\usepackage{hyperref}
+\usepackage{../coursenotes}
 
-\makeatletter
-\newcommand{\ellipse}{\cdot\cdot\cdot}
-\newcommand{\sor}{\quad | \quad}
-\newcommand{\sdot}{\quad\cdot\quad}
-
-\title{CSE 440 Compiler Construction}
-\author{Brett Hansen}
+\title{CSE 440 - Compiler Construction I}
+\author{
+{\large Instructor: Dr. Rida Bazzi} \\
+		Notes written by Brett Hansen
+}
 \date{}
 
 \begin{document}
@@ -81,8 +76,8 @@ L(R) 				&&& \text{The set of strings that R represents, also known as the \text
 \textbf{Regular Expression Example:}
 \begin{align*}
 \text{ID} 		&&& \text{\textit{letter followed by 0 or more letters or digits}} \\
-\text{letter} 	&&& a\sor b\sor \ellipse \sor z\sor A\sor B\sor \ellipse\sor Z \\
-\text{digit} 	&&& 0\sor 1\sor \ellipse \sor 9 \\
+\text{letter} 	&&& a\sor b\sor \ellipsis \sor z\sor A\sor B\sor \ellipsis\sor Z \\
+\text{digit} 	&&& 0\sor 1\sor \ellipsis \sor 9 \\
 \text{ID} 		&&& letter \sdot (\quad letter\sor digit\quad)^* \\
 \end{align*}
 
@@ -91,5 +86,21 @@ L(R) 				&&& \text{The set of strings that R represents, also known as the \text
 						 		&&\hookrightarrow &&& \text{deterministic finite state automata} \\
 						 		&&\hookrightarrow &&& \text{program} \\
 \end{align*}
+
+\section{Week of August 21st, 2016}
+\section{Week of August 28th, 2016}
+\section{Week of September 4th, 2016}
+\section{Week of September 11th, 2016}
+\section{Week of September 18th, 2016}
+\section{Week of September 25th, 2016}
+\section{Week of October 2nd, 2016}
+\section{Week of October 9th, 2016}
+\section{Week of October 16th, 2016}
+\section{Week of October 23rd, 2016}
+\section{Week of October 30th, 2016}
+\section{Week of November 6th, 2016}
+\section{Week of November 13th, 2016}
+\section{Week of November 20th, 2016}
+\section{Week of November 27th, 2016}
 
 \end{document}
