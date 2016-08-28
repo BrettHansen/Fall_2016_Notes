@@ -88,6 +88,57 @@ L(R) 				&&& \text{The set of strings that R represents, also known as the \text
 \end{align*}
 
 \section{Week of August 21st, 2016}
+\subsection{Finite State Machines}
+\textit{See Paper Notes}
+
+\subsubsection{DFA and NFA Defintions}
+\begin{defn}[Deterministic Finite State Automata]
+A \textit{deterministic finite state automata} is a 5-tuple, $(Q,q_0,\Sigma,F,\delta)$ where: \\
+$Q$: finite set of states \\
+$q_0$: initial state \\
+$\Sigma$: alphabet \\
+$F$: set of final states \\
+$\delta$: transition function, and \\
+$\delta:\ Q\times\Sigma\longrightarrow Q$ \\
+$\delta^*:\ \delta^*(q,\epsilon)=q$ \\
+$\delta^*(q,aw)=\delta^*(\delta(q,a),w)$ where $a\in\Sigma$ and $w$ is a string of elements of $\Sigma$ \\
+The string $w$ is only accepted by the DFA if $\delta*(q_0,w)\in F$.
+\end{defn}
+
+\begin{defn}[Non-deterministic Finite State Automata]
+A \textit{non-deterministic finite state automata} is a 5-tuple, $(Q,q_0,\Sigma,F,\delta)$ where: \\
+$Q$: finite set of states \\
+$q_0$: initial state \\
+$\Sigma$: alphabet \\
+$F$: set of final states \\
+$\delta$: transition function, and \\
+$\delta:\ Q\times\Sigma\cup\{\epsilon\}\longrightarrow 2^Q\ \text{or}\ \mathbb{P}(Q)$ \\
+\end{defn}
+
+\subsubsection{Regular Expressions to NFA}
+\begin{tabular}{ l | r }
+	\textbf{Regular Expression} & \textbf{Equivalent NFA} \\
+	\hline
+	\hline	
+	$\emptyset$ 	& \\
+	$\epsilon$ 		& \begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (23.5,-19) circle (3);
+\draw [black] (35.1,-19) circle (3);
+\draw [black] (35.1,-19) circle (2.4);
+\draw [black] (26.5,-19) -- (32.1,-19);
+\fill [black] (32.1,-19) -- (31.3,-18.5) -- (31.3,-19.5);
+\draw (29.3,-19.5) node [below] {$\epsilon$};
+\draw [black] (17.8,-19) -- (20.5,-19);
+\fill [black] (20.5,-19) -- (19.7,-18.5) -- (19.7,-19.5);
+\end{tikzpicture}\\
+	a 				& \\
+	$R_1 | R_2$ 	& \\
+	$R_1 \cdot R_2$ & \\
+	$R^*$ 			& \\
+	$(R)$ 			& \\
+\end{tabular}
+
 \section{Week of August 28th, 2016}
 \section{Week of September 4th, 2016}
 \section{Week of September 11th, 2016}

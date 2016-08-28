@@ -4,8 +4,30 @@
 \RequirePackage{multicol}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
+\RequirePackage{amsthm}
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
+\RequirePackage{tikz}
+
+%Setting up theorem environment
+%\makeatletter
+%\def\thmhead@plain#1#2#3{%
+%  \thmname{#1}\thmnumber{\@ifnotempty{#1}{ }\@upn{#2}}%
+%  \thmnote{ {\the\thm@notefont#3}}
+%\let\thmhead\thmhead@plain
+%\makeatother
+
+% Theorem-Type Definitions
+\newtheorem{case}{Case}
+\newtheorem{base}{Base Case}
+\newtheorem*{i_step}{Inductive Step}
+\newtheorem{lemma}{Lemma}
+\newtheorem{defn}{Definition}
+\theoremstyle{definition}
+\newtheorem*{note}{Note}
+\newtheorem*{corl}{Corollary}
+\newtheorem*{example}{Example}
+
 
 % General macros
 \newcommand{\midellipsis}{\cdot\ \cdot\ \cdot}
@@ -14,25 +36,26 @@
 \newcommand{\ssor}{\ |\ }
 \newcommand{\sdot}{\quad\cdot\quad}
 \newcommand{\ssdot}{\ \codt\ }
+\newcommand{\quoted}[1]{``#1''}
 
 % Need big improvements
-\newcommand{\definition}[2]{
-	\begin{description}[style=sameline,leftmargin=1.5in]
-	\item[#1]#2
-	\end{description}
-}
-\newcommand{\example}[2]{
-	\begin{description}[style=multiline,leftmargin=1.5in]
-	\item[\textit{Example #1}]
-	#2
-	\end{description}
-}
-\newcommand{\proof}[1]{
-	\begin{description}[style=sameline,leftmargin=.75in]
-	\item[Proof]#1
-	\begin{flushright}QED\end{flushright}
-	\end{description}
-}
+% \newcommand{\definition}[2]{
+% 	\begin{description}[style=sameline,leftmargin=1.5in]
+% 	\item[#1]#2
+% 	\end{description}
+% }
+% \newcommand{\example}[2]{
+% 	\begin{description}[style=multiline,leftmargin=1.5in]
+% 	\item[\textit{Example #1}]
+% 	#2
+% 	\end{description}
+% }
+% \newcommand{\proof}[1]{
+% 	\begin{description}[style=sameline,leftmargin=.75in]
+% 	\item[Proof]#1
+% 	\begin{flushright}QED\end{flushright}
+% 	\end{description}
+% }
 
 % Math Macros
 %% Big Notation
@@ -42,6 +65,8 @@
 %% Probability
 \newcommand{\prob}[1]{\mathbb{P}\left(#1\right)}
 \newcommand{\conprob}[2]{\prob{#1\ssor#2}}
+%% Combinatorics
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
 
 % Necessary?
 \endinput

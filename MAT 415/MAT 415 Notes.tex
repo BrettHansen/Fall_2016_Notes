@@ -42,6 +42,37 @@ A \textit{partition} of a set, $S$, is a division of a set into disjoint subsets
 \noindent Suppose a set $S$ has $p$ elements. If we partition $S$ into $q$ blocks of size $r$, then $q=p/r$ and $r=p/q$.
 
 \section{Week of August 21st, 2016}
+\subsection{Binomial Coefficients and the Quotient Principle}
+Let $P$ of size $p$ be the set of all permutations of $S=\{1,2,\ellipsis,n\}$. We say that two permutations are in the same block if they have the same first $k$ values. Then $p=n!$ and $q=k!$ (?).
+$$\binom{n}{k}=\frac{n!}{k!(n-k)!} \text{ is the number of }k\text{-element subsets of an }n\text{-element set.}$$
+
+\subsection{Lattice Paths}
+A lattice path is a path from $(a,b)$ to $(m,n)$ that only takes steps of length 1 in north or east directions. Thus, the number of north steps is $n-b$ and the number of east steps is $m-a$. So the total steps required is $n-b+m-a$. \\
+
+\noindent Since a step is either east or north, we can uniquely identify all lattice paths by only considering when an east step is taken. For example, between $(0,0)$ and $(2,1)$, we must take $2$ steps to the east. Thus out of our $3$ total steps the set of all unique sets of when we can take steps to the east is $\{\{1,2\},\{1,3\},\{2,3\}\}$. The missing member of each subset is when we take north steps and thus we have identified all unique lattice paths betweeen $(0,0)$ and $(2,1)$. In general, the number of unique lattice paths between $(a,b)$ and $(m,n)$ is:
+$$\binom{n-b+m-a}{m-a}=\binom{n-b+m-a}{n-b}$$
+
+\subsubsection{Catalan Numbers}
+If we only consider paths between $(0,0)$ and $(n,n)$, then we can define \textit{good paths} as those that do not touch the line $y=x+1$ which is equivalent to those paths that do not cross $y=x$. \textit{Bad paths} are simply paths that are not good. A bijection exists between bad paths, and all paths between $(-1,1)$ and $(n,n)$ (see notes). Thus the number of bad paths is simply:
+$$\binom{n-1+n+1}{n+1}=\binom{2n}{n+1}$$
+
+\noindent The number of good paths is then the subtraction of the total number of paths and the number of bad paths:
+\begin{align*}
+\binom{n-0+n-0}{n-0}-\binom{2n}{n+1}=\binom{2n}{n}-\binom{2n}{n+1}&=\frac{(2n)!}{n!\ n!}-\frac{(2n)!}{(n+1)!\ (n-1)!} \\
+		&=\frac{(2n)!\ (n+1)-(2n)!\ n}{(n+1)!\ n!} \\
+		&=\frac{(2n)!}{(n+1)!\ n!} \\
+\end{align*}
+
+\noindent The values this expression generates are called the Catalan numbers.
+
+\subsubsection{The Pigeonhole Principle}
+Suppose that there are $7$ houses and $10$ people to place in these houses. Obviously not everyone can have their own house.
+\begin{corl}
+A function from a set with $k+1$ elements to a set with $k$ elements cannot be one-to-one.
+\end{corl}
+\begin{example}[California Example]
+Suppose we label boxes with three letters representing a person's initials and a day of the year representing their birthday. This generates $26\cdot 26\cdot 26\cdot 365=6415240$ boxes. Given that there are about $38.8$ million people in California, if we assign each person a box based on their initials and birthday, there must be a box shared by at least $\ceil{\frac{N}{k}}=\ceil{6.048}=7$ people.
+\end{example}
 \section{Week of August 28th, 2016}
 \section{Week of September 4th, 2016}
 \section{Week of September 11th, 2016}
