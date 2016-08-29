@@ -48,6 +48,44 @@ Every non-empty subset of $\mathbb{R}$ that has an upper bound has a least upper
 % \proof{$S$ is non-empty and bounded above by $2$. Suppose $x\in\mathbb{Q}$ and $x>2$. Then $0\leq 2<x$ so $0\leq 2\cdot 2<2x$ and $0\leq 2x<x^2$. Then $2<4<x^2$ and thus $x\notin S$.}
 
 \section{Week of August 28th, 2016}
+\subsection{Cardinality}
+\begin{defn}[Finite]
+A set, $S$, is finite if $S=\emptyset$ or if there exists a bijection, $f: \{1,2,\ellipsis,n\}\longrightarrow S$ for some $n\in\mathbb{N}$.
+\end{defn}
+\begin{defn}[Infinite]
+A set, $S$, is infinite if it is not finite.
+\end{defn}
+For sets $A$ and $B$, $A\sim B$ if there exists a bijection, $f:A\longrightarrow B$. $\sim$ is an equivalence relation (symmetric, reflexive, and transitive).
+\begin{defn}[Finite]
+A set, $S$, is finite if $S=\emptyset$ or if $S\sim\{1,2,\ellipsis,n\}$ for some $n\in\mathbb{N}$.
+\end{defn}
+\begin{defn}[Countable]
+A set, $S$, is countable if $S\sim \mathbb{N}$.
+\end{defn}
+\begin{defn}[Uncountable]
+A set, $S$, is uncountable if it is infinite but not countable.
+\end{defn}
+\begin{theorem}
+$\mathbb{Q}$ is countable, but $\mathbb{R}$ is uncountable.
+\end{theorem}
+\begin{proof}$\mathbb{R}$ is uncountable. \\
+Suppose it is not, and so $\mathbb{R}$ is either countable or finite. It is not finite, but this will be left unproven. So then there must exist a function, $f:\mathbb{N}\longrightarrow\mathbb{R}$ that is one-to-one and onto. Choose a closed and bounded interval, $I$, that doesn't contain $f(1)$. Recursively construct a closed and bounded interval, $I_n,\ n\in\mathbb{N}$ with $I_n\geq I_{n+1}$ and $f(n)\in I_n\ \forall n$. By the nested interval property, $\parunion{n\in\mathbb{N}}{}{I_n}\neq\emptyset$. Now choose $x\in\parunion{n\in\mathbb{N}}{}{I_n}$ and note that $f(x)\neq x\ \forall n$. This is a contradiction and thus $\mathbb{R}$ is uncountable.
+\end{proof}
+
+\begin{theorem}
+Suppose $A_n$ is countable $\forall n\in\mathbb{N}$. Then,
+\begin{enumerate}[label=\roman*)]
+\item $\parunion{n=1}{N}{A_n}$ is countable $\forall N\in\mathbb{N}$ (finite union of countable sets is countable), and
+\item $\parunion{n\in\mathbb{N}}{}{A_n}$ is also countable (countable union of countable sets is countable).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}(?)
+\begin{enumerate}[label=\roman*)]
+\item First, we know that $A_1\cup A_2$ is countable. Equivalently, $\{\text{evens}\}\cup\{\text{odds}\}\sim\mathbb{N}$ or $f:A_1\longrightarrow\mathbb{N}\longrightarrow \{\text{evens}\}$ and $g:A_2\longrightarrow\mathbb{N}\longrightarrow \{\text{odds}\}$. Thus, if $h:A_1\cup A_2\longrightarrow\mathbb{N}$, then $h(x)=\{f^{\sim}(f(x))\ x\in A_1, g^{\sim}(g(x))\ x\in A_2\}$.
+\item $\mathbb{N}\sim\mathbb{N}\times\mathbb{N}$
+\end{enumerate}
+\end{proof}
 \section{Week of September 4th, 2016}
 \section{Week of September 11th, 2016}
 \section{Week of September 18th, 2016}
