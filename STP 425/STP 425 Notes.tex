@@ -58,6 +58,66 @@ Roll two dice, then if
 \end{align*}
 
 \section{Week of August 21st, 2016}
+Let $X$ represent the number of times that a coin changes between heads and tails when flipped with the probability of landing on heads for any given flip $p$. Find the $pmf$ of $X$ when $p=1/2$. All outcomes can be expressed as having probability $(1/2)^n$.
+$$X: \Omega\longrightarrow\{0,1,2,\ellipsis,n-1\}$$
+$$\prob{X=k}=2\ \binom{n-1}{k}\ \frac{1}{2}=\binom{n-1}{k}\ \left(\frac{1}{2}\right)^{n-1}\ (?)$$
+It is difficult to find $\expect{X}$ from the $pmf$, especially when $p\neq1/2$.
+
+\begin{example}[2.4.1]
+Find $\expect{X}$ for a general $p$. Start by writing $X$ as a sum of simple random variables.
+$$X=\parsum{i=1}{n-1}{X_i}\text{ where } X_i=(?)\mathbb{L}\{\text{flip } i\neq\text{flip } i+1\}$$
+$$\expect{X} = \expect{\parsum{i=1}{n-1}{X_i}} =\parsum{i=1}{n-1}{\expect{X_i}} = \parsum{i=1}{n-1}{\prob{X_i=1}} = \parsum{i=1}{n-1}{2p(1-p)} = 2p(p-1)(n-1)$$
+\end{example}
+
+\subsubsection{Coupon Collection Problem}
+There are $m$ different types of coupons. Each time you purchase a coupon it is equally likely to be of any type. Let $X$ be the number of coupons we need to purchase to get a coupon of every type and let $X_i$ be the number of coupons needed to get $i$ different coupon types. Then $X=X_m$. Notice that $X_{i+1}-X_i$ is geometric with $\frac{m-i}{m}$ (?).
+$$X=X_m=(X_m-X_{m-1})+(X_{m-1}-X_{m-2})+\midellipsis+(X_1-X_0)$$
+\begin{align*}
+\expect{X}&=\expect{\parsum{i=0}{m-1}{X_{i+1}-X_i}} \\
+		  &=\parsum{i=0}{m-1}{\expect{X_{i+1}-X_i}} \\
+		  &=\parsum{i=0}{m-1}{\frac{m}{m-i}} \\
+		  &=\parsum{i=0}{m}{\frac{m}{i}} \\
+		  &=m\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\midellipsis+\frac{1}{n}\right)
+\end{align*}
+When $m$ is large, then this value is approximately $m\ \text{log}(m)$.
+
+\subsubsection{Problem 1.32}
+Suppose there are $n$ people and $n$ hats. Each person selects a hat at random. Find the probability of $A=$ nobody gets their hat. Let $A_i=$ person $i$ gets their hat. Then,
+\begin{align*}
+A&=A_1^C \cap A_2^C \cap \midellipsis \cap A_n^C \\
+ &=\left(A_1 \cup A_2 \cup \midellipsis \cup A_n\right)^C
+\end{align*}
+Using the inclusion-exclusion identity we get:
+\begin{align*}
+&\prob{A}&&=1-\prob{\parunion{i=1}{n}{A_i}} \\
+&		 &&=1-\parsum{i=1}{n}{(-1)^{i+1}\ \binom{n}{i}\prob{A_1\cap A_2\cap \midellipsis \cap A_n}} \\
+&		 &&=1-\parsum{i=1}{n}{(-1)^{i+1}\ \binom{n}{i}\ \frac{(n-i)!}{n!}} \\
+&		 &&=1-\parsum{i=1}{n}{(-1)^{i+1}\ \binom{n}{i}\ \frac{1}{i!}} \\
+&		 &&=1+\parsum{i=1}{n}{(-1)^i\ \binom{n}{i}\ \frac{1}{i!}} \\
+&		 &&=\parsum{i=0}{n}{(-1)^i\ \binom{n}{i}\ \frac{1}{i!}} \\
+&\text{lim}_{n\rightarrow\infty}\left(\parsum{i=0}{n}{(-1)^i\ \binom{n}{i}\ \frac{1}{i!}}\right)&&=e^{-1}
+\end{align*}
+
+\subsubsection{Problem 2.72}
+Same story as in Problem 1.32.
+$$\prob{X=0}=\prob{A}=\parsum{i=0}{n}{(-1)^i\ \frac{1}{i!}}$$
+Find $\expect{X}$ and $\var{X}$. We do not know the \textit{pmf}.
+Define
+$$X_i=
+	\begin{cases} 
+	      0 & \text{if person }i\text{ does not get their hat} \\
+	      1 & \text{otherwise}
+	\end{cases}$$ and let
+$$X=X_1+X_2+\midellipsis+X_n\ .$$
+$$\expect{X}=\expect{\parsum{i=1}{n}{X_i}}=\parsum{i=1}{n}{\expect{X_i}}=n\ \expect{X_1}=n\ \prob{X_1=1}=n\ \prob{A_1}=n\ \frac{1}{n}=1$$
+\begin{align*}
+\expect{X^2}=\expect{\left(\parsum{i=1}{n}{X_i}\right)^2}=\expect{\parsum{i=1}{n}{X_i^2}+\parsum{i\neq j}{}{X_i\ X_j}}&=&&\parsum{i=1}{n}{\expect{X_i^2}}&+&\parsum{i\neq j}{}{X_i\ X_j} \\
+	&=&&n\ \frac{1}{n}&+&\parsum{i\neq j}{}{\prob{X_i=X_j=1}} \\
+	&=&&1			  &+&\ (n^2-n)\prob{X_1=X_2=1} \\
+	&=&&1			  &+&\ \frac{(n^2-n)}{n(n-1)} \\
+	&=&&2
+\end{align*}
+$$\var{X}=\expect{\left(X-\expect{X}\right)^2}=\expect{X^2}-\expect{X}^2=2-1=1$$
 \section{Week of August 28th, 2016}
 \section{Week of September 4th, 2016}
 \section{Week of September 11th, 2016}
